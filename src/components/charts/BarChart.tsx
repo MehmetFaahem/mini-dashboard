@@ -8,7 +8,12 @@ export type BarChartProps = {
   color?: string;
 };
 
-export default function BarChart({ values, width = 300, height = 120, color = "var(--accent)" }: BarChartProps) {
+export default function BarChart({
+  values,
+  width = 300,
+  height = 120,
+  color = "var(--accent)",
+}: BarChartProps) {
   const max = Math.max(...values, 1);
   const gap = 6;
   const barWidth = (width - gap * (values.length + 1)) / values.length;
@@ -28,7 +33,12 @@ export default function BarChart({ values, width = 300, height = 120, color = "v
             fill={color}
             initial={{ height: 0, y: height }}
             animate={{ height: h, y }}
-            transition={{ type: "spring", stiffness: 220, damping: 24, delay: i * 0.04 }}
+            transition={{
+              type: "spring",
+              stiffness: 220,
+              damping: 24,
+              delay: i * 0.04,
+            }}
             rx={4}
           />
         );
@@ -36,5 +46,3 @@ export default function BarChart({ values, width = 300, height = 120, color = "v
     </svg>
   );
 }
-
-

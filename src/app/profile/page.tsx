@@ -11,8 +11,8 @@ export default async function ProfilePage() {
         <p className="text-sm text-muted-foreground">
           You must sign in to view this page.
         </p>
-        <Link
-          href="/api/auth/signin"
+         <Link
+           href="/api/auth/signin?callbackUrl=/profile"
           className="text-sm px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
         >
           Sign in with Google

@@ -55,19 +55,9 @@ export default async function RootLayout({
                   </Link>
                 ))}
                 {session?.user ? (
-                  <Link
-                    href="/api/auth/signout"
-                    className="px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
-                  >
-                    Sign out
-                  </Link>
+                  <Link href="/api/auth/signout" className="px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors">Sign out</Link>
                 ) : (
-                  <Link
-                    href="/api/auth/signin"
-                    className="px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
-                  >
-                    Sign in
-                  </Link>
+                  <Link href="/api/auth/signin?callbackUrl=/profile" className="px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors">Sign in</Link>
                 )}
               </nav>
             </div>
