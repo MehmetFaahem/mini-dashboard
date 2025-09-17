@@ -23,7 +23,7 @@ export default function BarChart({
       height={height}
       viewBox={`0 0 ${width} ${height}`}
       preserveAspectRatio="none"
-      className="overflow-visible w-full h-auto"
+      className="overflow-hidden w-full h-auto"
     >
       {values.map((v, i) => {
         const h = (v / max) * (height - 20);
