@@ -6,7 +6,11 @@ import Link from "next/link";
 
 type Post = { id: number; title: string; body: string };
 
-export default function PostDetail({ params }: { params: Promise<{ id: string }> }) {
+export default function PostDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = use(params);
   const url = useMemo(
     () => `https://jsonplaceholder.typicode.com/posts/${id}`,

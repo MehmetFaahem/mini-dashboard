@@ -12,7 +12,10 @@ export default function Home() {
             Here is a quick summary of your dashboard.
           </p>
         </div>
-        <Link href="/posts" className="text-sm px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors">
+        <Link
+          href="/posts"
+          className="text-sm px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
+        >
           Go to Posts
         </Link>
       </div>
@@ -37,7 +40,9 @@ export default function Home() {
             className="rounded-xl border border-white/10 bg-white/5 backdrop-blur px-5 py-4"
           >
             <div className="text-xs text-muted-foreground">{stat.label}</div>
-            <div className="text-2xl font-semibold mt-1 text-[var(--accent)]">{stat.value}</div>
+            <div className="text-2xl font-semibold mt-1 text-[var(--accent)]">
+              {stat.value}
+            </div>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${50 + index * 10}%` }}

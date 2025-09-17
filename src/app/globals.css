@@ -31,9 +31,16 @@
 
 body {
   /* Modern subtle gradient background */
-  background:
-    radial-gradient(1200px 600px at 100% -10%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 60%),
-    radial-gradient(900px 500px at -10% 100%, color-mix(in oklab, var(--accent) 15%, transparent), transparent 60%),
+  background: radial-gradient(
+      1200px 600px at 100% -10%,
+      color-mix(in oklab, var(--accent) 20%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at -10% 100%,
+      color-mix(in oklab, var(--accent) 15%, transparent),
+      transparent 60%
+    ),
     var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;

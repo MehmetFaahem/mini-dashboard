@@ -44,7 +44,9 @@ export function Card({
       }`}
     >
       {title ? (
-        <div className="font-medium mb-1 line-clamp-1 text-[var(--accent)]">{title}</div>
+        <div className="font-medium mb-1 line-clamp-1 text-[var(--accent)]">
+          {title}
+        </div>
       ) : null}
       {children}
     </motion.div>

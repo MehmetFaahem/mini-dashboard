@@ -18,7 +18,10 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <div className="absolute inset-0 bg-[var(--accent)]/20 backdrop-blur-sm" onClick={onClose} />
+          <div
+            className="absolute inset-0 bg-[var(--accent)]/20 backdrop-blur-sm"
+            onClick={onClose}
+          />
           <motion.div
             role="dialog"
             aria-modal="true"
@@ -31,7 +34,9 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
             <div className="flex items-start justify-between gap-4">
               <div>
                 {title ? (
-                  <h3 className="text-lg font-semibold text-[var(--accent)]">{title}</h3>
+                  <h3 className="text-lg font-semibold text-[var(--accent)]">
+                    {title}
+                  </h3>
                 ) : null}
               </div>
               <button
