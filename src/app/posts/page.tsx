@@ -10,7 +10,10 @@ type Post = { id: number; title: string; body: string };
 export default function PostsPage() {
   const [simulateError, setSimulateError] = useState(false);
   const url = useMemo(
-    () => (simulateError ? "https://jsonplaceholder.typicode.com/invalid-posts" : "https://jsonplaceholder.typicode.com/posts"),
+    () =>
+      simulateError
+        ? "https://jsonplaceholder.typicode.com/invalid-posts"
+        : "https://jsonplaceholder.typicode.com/posts",
     [simulateError]
   );
   const { data, loading, error, refetch } = useFetch<Post[]>(url);
@@ -20,7 +23,9 @@ export default function PostsPage() {
       <div className="flex items-end justify-between gap-4">
         <div>
           <h1 className="text-xl font-semibold">Posts</h1>
-          <p className="text-sm text-muted-foreground">Fetched from JSONPlaceholder</p>
+          <p className="text-sm text-muted-foreground">
+            Fetched from JSONPlaceholder
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <button
@@ -29,32 +34,47 @@ export default function PostsPage() {
           >
             {simulateError ? "Disable Error" : "Simulate Error"}
           </button>
-          <button className="text-xs rounded border px-2 py-1 hover:bg-foreground/5" onClick={() => refetch()}>
+          <button
+            className="text-xs rounded border px-2 py-1 hover:bg-foreground/5"
+            onClick={() => refetch()}
+          >
             Refetch
           </button>
         </div>
       </div>
 
       {loading && <div className="text-sm">Loading posts…</div>}
-      {error && <div className="text-sm text-red-600">Failed to load posts: {error}</div>}
+      {error && (
+        <div className="text-sm text-red-600">
+          Failed to load posts: {error}
+        </div>
+      )}
 
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         initial="hidden"
         animate="show"
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.05 } },
+        }}
       >
-        {(data || []).slice(0, 30).map((post, idx) => (
-          <Card key={post.id} title={post.title} href={`/posts/${post.id}`} index={idx}>
-            <p className="text-sm line-clamp-3 text-muted-foreground">{post.body}</p>
-            <Link className="text-xs underline mt-2 inline-block" href={`/posts/${post.id}`}>
-              Read more
-            </Link>
-          </Card>
-        ))}
+         {(data || []).slice(0, 30).map((post, idx) => (
+           <Card
+             key={post.id}
+             title={post.title}
+             href={`/posts/${post.id}`}
+             index={idx}
+           >
+             <p className="text-sm line-clamp-3 text-muted-foreground">
+               {post.body}
+             </p>
+             <span className="text-xs underline mt-2 inline-block">
+               Read more
+             </span>
+           </Card>
+         ))}
       </motion.div>
     </div>
   );
 }
-
-
