@@ -6,8 +6,8 @@ import BarChart from "@/components/charts/BarChart";
 
 export default function Home() {
   return (
-    <div className="space-y-8">
-      <div className="flex items-center justify-between">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
         <div>
           <h1 className="text-2xl font-semibold">Welcome back 👋</h1>
           <p className="text-sm text-muted-foreground">
@@ -22,7 +22,7 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {[
           { label: "Visitors", value: "12.4k" },
           { label: "Signups", value: "1,082" },
@@ -52,7 +52,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         <motion.div
           initial={{ y: 24, opacity: 0, scale: 0.98 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}

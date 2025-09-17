@@ -32,7 +32,13 @@ export default function SparkArea({
   const area = `${path} L${pad},${height - pad} Z`;
 
   return (
-    <svg width={width} height={height} className="overflow-visible">
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      preserveAspectRatio="none"
+      className="overflow-visible w-full h-auto"
+    >
       <motion.path
         d={area}
         fill={fill}

@@ -18,7 +18,13 @@ export default function BarChart({
   const gap = 6;
   const barWidth = (width - gap * (values.length + 1)) / values.length;
   return (
-    <svg width={width} height={height} className="overflow-visible">
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      preserveAspectRatio="none"
+      className="overflow-visible w-full h-auto"
+    >
       {values.map((v, i) => {
         const h = (v / max) * (height - 20);
         const x = gap + i * (barWidth + gap);
