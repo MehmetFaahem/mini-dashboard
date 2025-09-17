@@ -1,13 +1,13 @@
 "use client";
-import { useMemo } from "react";
+import { use, useMemo } from "react";
 import { useFetch } from "@/hooks/useFetch";
 import Card from "@/components/Card";
 import Link from "next/link";
 
 type Post = { id: number; title: string; body: string };
 
-export default function PostDetail({ params }: { params: { id: string } }) {
-  const id = params.id;
+export default function PostDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const url = useMemo(
     () => `https://jsonplaceholder.typicode.com/posts/${id}`,
     [id]
