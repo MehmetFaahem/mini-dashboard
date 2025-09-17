@@ -21,21 +21,21 @@ export default function PostsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-end justify-between gap-4">
-        <div>
-          <h1 className="text-xl font-semibold">Posts</h1>
-          <p className="text-sm text-muted-foreground">
-            Fetched from JSONPlaceholder
-          </p>
-        </div>
+         <div>
+           <h1 className="text-xl font-semibold">Posts</h1>
+           <p className="text-sm text-muted-foreground">
+             Fetched from JSONPlaceholder
+           </p>
+         </div>
         <div className="flex items-center gap-2">
-          <button
-            className="text-xs rounded border px-2 py-1 hover:bg-foreground/5"
+           <button
+             className="text-xs rounded-md border border-white/15 px-2 py-1 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
             onClick={() => setSimulateError((v) => !v)}
           >
             {simulateError ? "Disable Error" : "Simulate Error"}
           </button>
-          <button
-            className="text-xs rounded border px-2 py-1 hover:bg-foreground/5"
+           <button
+             className="text-xs rounded-md border border-white/15 px-2 py-1 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
             onClick={() => refetch()}
           >
             Refetch
@@ -60,20 +60,20 @@ export default function PostsPage() {
         }}
       >
          {(data || []).slice(0, 30).map((post, idx) => (
-           <Card
-             key={post.id}
-             title={post.title}
-             href={`/posts/${post.id}`}
-             index={idx}
-           >
-             <p className="text-sm line-clamp-3 text-muted-foreground">
-               {post.body}
-             </p>
-             <span className="text-xs underline mt-2 inline-block">
-               Read more
-             </span>
-           </Card>
-         ))}
+          <Card
+            key={post.id}
+            title={post.title}
+            href={`/posts/${post.id}`}
+            index={idx}
+          >
+            <p className="text-sm line-clamp-3 text-muted-foreground">
+              {post.body}
+            </p>
+             <span className="text-xs underline mt-2 inline-block text-[var(--accent)]">
+              Read more
+            </span>
+          </Card>
+        ))}
       </motion.div>
     </div>
   );

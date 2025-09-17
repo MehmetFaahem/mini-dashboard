@@ -8,9 +8,13 @@ export default function Home() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold">Welcome back 👋</h1>
-          <p className="text-sm text-muted-foreground">Here is a quick summary of your dashboard.</p>
+          <p className="text-sm text-muted-foreground">
+            Here is a quick summary of your dashboard.
+          </p>
         </div>
-        <Link href="/posts" className="text-sm underline">Go to Posts</Link>
+        <Link href="/posts" className="text-sm px-3 py-1 rounded-md border border-white/15 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors">
+          Go to Posts
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -24,16 +28,21 @@ export default function Home() {
             key={stat.label}
             initial={{ y: 24, opacity: 0, scale: 0.95 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.05 * index }}
-            className="rounded-lg border border-black/5 dark:border-white/10 p-4"
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 20,
+              delay: 0.05 * index,
+            }}
+            className="rounded-xl border border-white/10 bg-white/5 backdrop-blur px-5 py-4"
           >
             <div className="text-xs text-muted-foreground">{stat.label}</div>
-            <div className="text-2xl font-semibold mt-1">{stat.value}</div>
+            <div className="text-2xl font-semibold mt-1 text-[var(--accent)]">{stat.value}</div>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${50 + index * 10}%` }}
               transition={{ duration: 0.8, delay: 0.05 * index }}
-              className="h-1 mt-3 rounded bg-foreground/20 dark:bg-foreground/40"
+              className="h-1 mt-3 rounded bg-[var(--accent)]/40"
             />
           </motion.div>
         ))}

@@ -8,7 +8,11 @@ export type FetchState<TData> = {
 };
 
 export function useFetch<TData>(url: string, options?: RequestInit) {
-  const [state, setState] = useState<FetchState<TData>>({ data: null, loading: true, error: null });
+  const [state, setState] = useState<FetchState<TData>>({
+    data: null,
+    loading: true,
+    error: null,
+  });
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const execute = useCallback(async () => {
@@ -19,7 +23,10 @@ export function useFetch<TData>(url: string, options?: RequestInit) {
     abortControllerRef.current = controller;
     setState((s) => ({ ...s, loading: true, error: null }));
     try {
-      const response = await fetch(url, { ...(options || {}), signal: controller.signal });
+      const response = await fetch(url, {
+        ...(options || {}),
+        signal: controller.signal,
+      });
       if (!response.ok) {
         throw new Error(`Request failed: ${response.status}`);
       }
@@ -38,5 +45,3 @@ export function useFetch<TData>(url: string, options?: RequestInit) {
 
   return { ...state, refetch: execute } as const;
 }
-
-

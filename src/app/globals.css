@@ -3,24 +3,43 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #db2777; /* pink-600 */
+  --accent-foreground: #fff0f6;
+  --muted-foreground: #616161;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Deep plum/pink dark theme */
+    --background: #0d0611;
+    --foreground: #f8eafa;
+    --accent: #ec4899; /* pink-500 */
+    --accent-foreground: #2b0a1e;
+    --muted-foreground: #d6b3d1;
   }
 }
 
 body {
-  background: var(--background);
+  /* Modern subtle gradient background */
+  background:
+    radial-gradient(1200px 600px at 100% -10%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 60%),
+    radial-gradient(900px 500px at -10% 100%, color-mix(in oklab, var(--accent) 15%, transparent), transparent 60%),
+    var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 40%, transparent);
+  color: var(--accent-foreground);
 }
